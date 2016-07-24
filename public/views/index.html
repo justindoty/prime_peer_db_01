@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app="assignmentApp">
+  <head>
+    <meta charset="utf-8">
+    <title>Mongoose First App</title>
+
+    <script src="../vendors/angular/angular.min.js" charset="utf-8"></script>
+    <script src="../vendors/angular-animate/angular-animate.min.js" charset="utf-8"></script>
+    <script src="../vendors/angular-touch/angular-touch.min.js" charset="utf-8"></script>
+    <script src="../vendors/angular-ui-bootstrap/dist/ui-bootstrap.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="../vendors/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../styles/stylesheet.css" media="screen" title="no title" charset="utf-8">
+
+    <script src="../scripts/client.js" charset="utf-8"></script>
+  </head>
+  <body ng-controller="AssignmentController as assignment">
+    <div>
+      <form><h1>Create New Assignment</h1>
+        Assignment Name: <input type="text" ng-model="assignment.assignment_name" placeholder="Assignment Name"/>
+        Student Name: <input type="text" ng-model="assignment.student_name" placeholder="Student Name"/>
+        Score: <input type="number" ng-model="assignment.score" placeholder="Score"/>
+        Date: <input type="date" ng-model="assignment.date_completed"/>
+        <input type="submit" value="submit" ng-click="assignment.doAction()"/>
+      </form>
+    </div>
+
+    <div><h2>Assignments</h2>
+
+      <ul>
+        <li ng-repeat="assignmentID in assignment.assignments"><input type="button" ng-click="assignment.deleteAssignment(assignmentID._id)"> Assignment Name: {{assignmentID.assignment_name}}
+          <!-- <button class="btn btn-default" ng-click="assignment.editAssignment()">Edit</button></li> -->
+      </ul>
+
+    </div>
+  </div>
+
+  </body>
+</html>
